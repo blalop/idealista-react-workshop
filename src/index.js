@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Greeting from './components/Greeting';
 
-ReactDOM.render(<Greeting message="Hello world"/>, document.querySelector('#root'));
+import Ad from './components/Ad'
+
+ReactDOM.render(<Ad title="Anuncio1" desc="Anuncio superguay" />, document.querySelector('#root'));
