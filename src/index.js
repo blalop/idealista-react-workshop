@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Ad from './components/Ad'
+import App from './App';
 
-ReactDOM.render(<Ad title="Anuncio1" desc="Anuncio superguay" />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector('#root'));
