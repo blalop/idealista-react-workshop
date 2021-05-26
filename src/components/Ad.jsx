@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
-const Ad = ({ title = '', description = '', isFav = false } = {}) => {
-    const [isFavorite, setIsFavorite] = useState(isFav);
-
-    const onFavorite = () => setIsFavorite(!isFavorite);
+const Ad = ({ id = -1, title = '', description = '', onFavorited = () => null, isFav = false } = {}) => {
+    const onFavorite = () => onFavorited(id);
 
     return (
         <article className={`card-container ${isFav ? 'fav' : ''}`}>
@@ -16,7 +14,7 @@ const Ad = ({ title = '', description = '', isFav = false } = {}) => {
                 <p className='card-text'>{description}</p>
                 <div className='card-actions'>
                     <label className='card-label'>
-                        <input onChange={onFavorite} className='card-input' type="checkbox" checked={isFavorite} />
+                        <input onChange={onFavorite} className='card-input' type="checkbox" checked={isFav} />
                         <span className='card-checkbox'>
                             <span className='card-favorite'>Favorite?</span>
                         </span>
