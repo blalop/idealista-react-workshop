@@ -1,6 +1,6 @@
 import React from 'react';
-import Ad from './components/Ad'
+import Ad from './components/Ad';
 
-export default () => {
-    return <Ad title="Anuncio1" desc="Anuncio superguay" />
-};
+export default () => (
+    <Ad title="test title" description="test description" isFav={true} />
+);
