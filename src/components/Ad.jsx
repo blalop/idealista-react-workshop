@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Ad = ({ title = '', description = '', isFav = false } = {}) => {
+    const [isFavorite, setIsFavorite] = useState(isFav);
+
+    const onFavorite = () => setIsFavorite(!isFavorite);
+
     return (
         <article className={`card-container ${isFav ? 'fav' : ''}`}>
             <figure className='card-figure'>
@@ -12,7 +16,7 @@ const Ad = ({ title = '', description = '', isFav = false } = {}) => {
                 <p className='card-text'>{description}</p>
                 <div className='card-actions'>
                     <label className='card-label'>
-                        <input className='card-input' type="checkbox" checked={isFav} />
+                        <input onChange={onFavorite} className='card-input' type="checkbox" checked={isFavorite} />
                         <span className='card-checkbox'>
                             <span className='card-favorite'>Favorite?</span>
                         </span>
