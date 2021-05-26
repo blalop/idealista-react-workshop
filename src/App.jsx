@@ -4,5 +4,5 @@ import CreateAd from './components/CreateAd';
 
 export default () => (
     // <Ad title="test title" description="test description" isFav={false} />
-    <CreateAd />
+    <CreateAd onCreatedAd={(ad) => console.log(ad)} />
 );

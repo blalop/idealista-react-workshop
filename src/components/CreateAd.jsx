@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 
-export default () => {
+export default ({ onCreatedAd }) => {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [isFav, setIsFav] = useState(false);
 
+    const onFormSubmit = (ev) => {
+        ev.preventDefault();
+
+        onCreatedAd({
+            title,
+            desc,
+            isFav
+        });
+    };
+
     return (
        <section className="create-new-ad">
-            <form>
+            <form onSubmit={onFormSubmit}>
                 <input
                     placeholder="title"
                     type="text"
