@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-const Ad = ({ id = -1, title = '', description = '', onFavorited = () => null, isFav = false } = {}) => {
+const Ad = ({ id = -1, title = '', description = '', onFavorited = () => null, onDiscarded = () => null, isFav = false } = {}) => {
     const onFavorite = () => onFavorited(id);
+    const onDiscard = () => onDiscarded(id);
 
     return (
         <article className={`card-container ${isFav ? 'fav' : ''}`}>
@@ -19,7 +20,7 @@ const Ad = ({ id = -1, title = '', description = '', onFavorited = () => null, i
                             <span className='card-favorite'>Favorite?</span>
                         </span>
                     </label>
-                    <button>Discard</button>
+                    <button onClick={onDiscard}>Discard</button>
                 </div>
             </div>
         </article>

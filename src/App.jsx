@@ -29,10 +29,20 @@ export default ({ name = '' }) => {
         setAds(newList);
     };
 
+    const onDiscardAd = id => {
+        const newAdList = ads.filter(ad => ad.id != id);
+        setAds(newAdList);
+    }
+
+    const onDiscardAll = () => {
+        setAds([]);
+    }
+
     return (
         <div className="container">
             <CreateAd onCreatedAd={onCreatedAd} />
-            { isData && <AdList onFavorited={onFavorited} ads={ads} />}
+            <button onClick={onDiscardAll}>Discard all</button>
+            { <AdList onFavorited={onFavorited} onDiscarded={onDiscardAd} ads={ads} />}
             
         </div>
     )
